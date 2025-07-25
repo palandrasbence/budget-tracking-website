@@ -22,6 +22,7 @@ namespace BACKEND.Data
         {
             Income incomeToUpdate = this.Read(income.ID);
 
+            incomeToUpdate.Date = income.Date;
             incomeToUpdate.Desc = income.Desc;
             incomeToUpdate.Amount = income.Amount;
             incomeToUpdate.Category = income.Category;
