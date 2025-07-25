@@ -23,7 +23,6 @@ namespace BACKEND.Data
             Expense expenseToUpdate = this.Read(expense.ID);
 
             expenseToUpdate.Date = expense.Date;
-            expenseToUpdate.Desc = expense.Desc;
             expenseToUpdate.Amount = expense.Amount;
             expenseToUpdate.Category = expense.Category;
 
