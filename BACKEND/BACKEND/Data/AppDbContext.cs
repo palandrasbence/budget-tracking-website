@@ -8,15 +8,9 @@ namespace BACKEND.Data
         public DbSet<Income> Incomes { get; set; }
         public DbSet<Expense> Expenses { get; set; }
 
-        public AppDbContext()
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             Database.EnsureCreated();
-        }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=budgetdb;Integrated Security=True;MultipleActiveResultSets=true";
-            optionsBuilder.UseSqlServer(connString);
-            base.OnConfiguring(optionsBuilder);
         }
     }
 }
