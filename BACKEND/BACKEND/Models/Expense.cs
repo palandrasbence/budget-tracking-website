@@ -21,6 +21,9 @@ namespace BACKEND.Models
 
         [Display(Name = "Health")]
         Health = 5,
+
+        [Display(Name = "Other")]
+        Other = 6
     }
     public class Expense
     {
