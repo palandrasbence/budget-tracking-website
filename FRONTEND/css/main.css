@@ -260,7 +260,7 @@ hr {
 
 .budget__piechart {
     background-image: conic-gradient(var(--color-danger) 0 180deg, var(--color-success) 180deg 360deg);
-    margin: auto;
+    margin: 0.5rem auto 0;
     width: 175px;
     height: 175px;
     display: flex;
