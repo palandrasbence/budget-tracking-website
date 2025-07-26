@@ -2,11 +2,146 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Pál András Bence">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <title>Document</title>
+    <title>Budget Tracker</title>
 </head>
 <body>
-    
+    <main class="budget">
+        <section class="budget__sidebar">
+            <div class="budget__block budget__block--income">
+                <h2 class="budget__title">Income</h2>
+                <div class="budget__input-group">
+                    <input type="number" id="income-amount" placeholder="Enter Amount" class="budget__input budget__input--income budget__input--amount" />
+                    <span class="budget__currency">EUR</span>
+                </div>
+                <label for="income-date" class="budget__label">Select date:</label>
+                <input type="date" id="income-date" class="budget__input budget__input--income budget__input--date" />
+                <label for="income-category" class="budget__label">Select category:</label>
+                <div class="budget__select-custom-wrapper">
+                    <select id="income-category" name="type" class="budget__select budget__select--income">
+                        <option value="0">Salary</option>
+                        <option value="1">Freelance</option>
+                        <option value="2">Investments</option>
+                        <option value="3">Gifts</option>
+                        <option value="4">Other</option>
+                    </select>
+                </div>
+                <button class="budget__button budget__button--add" onclick="createIncome()">Add</button>
+            </div>
+
+            <div class="budget__block budget__block--expense">
+                <h2 class="budget__title">Expense</h2>
+                <div class="budget__input-group">
+                    <input type="number" step="1" id="expense-amount" placeholder="Enter Amount" class="budget__input budget__input--expense budget__input--amount" />
+                    <span class="budget__currency">Ft</span>
+                </div>
+                <label for="expense-date" class="budget__label">Select date:</label>
+                <input type="date" id="expense-date" class="budget__input budget__input--expense budget__input--date" />
+                <label for="expense-category" class="budget__label">Select category:</label>
+                <div class="budget__select-custom-wrapper">
+                    <select id="expense-category" name="type" class="budget__select budget__select--expense">
+                        <option value="0">Essential</option>
+                        <option value="1">Housing</option>
+                        <option value="2">Food</option>
+                        <option value="3">Entertainment</option>
+                        <option value="4">Transportation</option>
+                        <option value="5">Health</option>
+                        <option value="6">Other</option>
+                    </select>
+                </div>
+                <button class="budget__button budget__button--add" onclick="createExpense()">Add</button>
+            </div>
+        </section>
+
+        <section class="budget__main">
+            <div class="budget__summary">
+                <div class="budget__block budget__block--diagram">
+                    <div class="budget__diagram">
+                        <div id="income-column" class="budget__column">
+                            <h3 class="budget__column-title">Income</h3>
+                            <div style="width: 100%; height: 50px; background-color: var(--color-success);" class="budget__column-bar" id="income-bar">
+                                <div class="budget__column-bar-inner" id="income-bar-inner"></div>
+                            </div>
+                        </div>
+                        <div id="expense-column" class="budget__column">
+                            <h3 class="budget__column-title">Expense</h3>
+                            <div style="width: 100%; height: 50px; background-color: var(--color-danger);" class="budget__column-bar" id="expense-bar">
+                                <div class="budget__column-bar-inner" id="expense-bar-inner"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="budget__block budget__block--totals">
+                    <div class="budget__totals-row">
+                        <h3 class="budget__totals-label">Income:</h3>
+                        <p id="income-all" class="budget__totals-value">0Ft</p>
+                    </div>
+                    <div class="budget__totals-row">
+                        <h3 class="budget__totals-label">Expense:</h3>
+                        <p id="expense-all" class="budget__totals-value">0Ft</p>
+                    </div>
+                    <hr />
+                    <div class="budget__budget-container">
+                        <div class="budget__piechart" id="piechart">
+                            <div class="budget__piechart-inner">
+                                <p id="income-percentage" class="budget__percentage">0%</p>
+                                <p id="expense-percentage" class="budget__percentage">0%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="budget__details">
+                <div class="budget__block budget__block--lists">
+                    <section class="budget__list-section">
+                        <h2 class="budget__list-title">Incomes</h2>
+                        <table class="budget__table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Category</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="income-list" class="budget__table-body">
+                                <tr>
+                                    <td colspan="5" class="budget__table-empty">No incomes added yet.</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section class="budget__list-section">
+                        <h2 class="budget__list-title">Expenses</h2>
+                        <table class="budget__table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Category</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="expense-list" class="budget__table-body">
+                                <tr>
+                                    <td colspan="5" class="budget__table-empty">No expenses added yet.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
