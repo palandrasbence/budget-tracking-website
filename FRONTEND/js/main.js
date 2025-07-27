@@ -79,7 +79,7 @@ async function downloadAndDisplay() {
         tdCategory.innerText = incomeCategoryEnum[income.category];
         tdAmount.innerText = income.amount + '€';
         tdDate.innerText = new Date(income.date).toLocaleDateString('en-GB');
-        tdAction.innerHTML = `<button class="budget__button budget__button--delete" onclick="deleteIncome(${income.id})">Delete</button>`;
+        tdAction.innerHTML = `<button class="budget__button budget__button--delete" onclick="deleteIncome(${income.id})">X</button>`;
 
         tr.appendChild(tdID);
         tr.appendChild(tdCategory);
