@@ -229,6 +229,24 @@ p {
     transition: height 0.3s ease;
 }
 
+.budget__column-bar:hover {
+    box-shadow: inset 0 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.budget__column-bar-text {
+    position: relative;
+    visibility: hidden;
+    opacity: 0;
+    bottom: -45%;
+    left: 50%;
+    transform: translateX(-25%);
+}
+
+.budget__column-bar:hover .budget__column-bar-text {
+    visibility: visible;
+    opacity: 1;
+}
+
 #income-bar {
     background-color: var(--color-success);
 }
